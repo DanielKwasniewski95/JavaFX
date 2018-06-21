@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.daniel.app.controller.Controller">
+    <children>
+        <TextField fx:id="deviceNameField" layoutX="42.0" layoutY="60.0" onKeyReleased="#keyReleasedPropertyAddButton" />
+        <TextField fx:id="powerField" layoutX="206.0" layoutY="60.0" onKeyReleased="#keyReleasedPropertyAddButton" onMouseClicked="#selectAllPowerField" prefHeight="25.0" prefWidth="73.0" promptText="[x.x]" />
+        <TextField fx:id="resultField" layoutX="356.0" layoutY="384.0" prefHeight="25.0" prefWidth="73.0" />
+        <TextField fx:id="priceField" layoutX="439.0" layoutY="384.0" prefHeight="25.0" prefWidth="73.0" />
+        <TextField fx:id="priceKwHField" layoutX="490.0" layoutY="293.0" onKeyReleased="#keyReleasedPropertyCountButton" onMouseClicked="#selectAllPriceField" prefHeight="25.0" prefWidth="72.0" promptText="[x.x]" />
+        <TextField fx:id="timeField" layoutX="42.0" layoutY="111.0" onKeyReleased="#keyReleasedPropertyAddButton" onMouseClicked="#selectAllTimeField" prefHeight="25.0" prefWidth="73.0" promptText="[x.x]" />
+
+        <Label layoutX="42.0" layoutY="43.0" text="Device name" />
+        <Label layoutX="206.0" layoutY="44.0" text="Power [W]" />
+        <Label layoutX="357.0" layoutY="367.0" text="[kWh]" />
+        <Label layoutX="42.0" layoutY="94.0" text="Daily use [M]" />
+        <Label layoutX="441.0" layoutY="367.0" text="Price [zl]" />
+        <Label layoutX="490.0" layoutY="272.0" text="Price kWh [zl]" />
+        <Label layoutX="352.0" layoutY="346.0" text="RESULT:" />
+        <Label layoutX="390.0" layoutY="272.0" text="Period" />
+
+        <Button fx:id="addButton" layoutX="214.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+        <Button fx:id="clearAllButton" layoutX="399.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleClear" onKeyReleased="#keyReleasedPropertyClearButton" text="Clear All" />
+        <Button fx:id="countButton" layoutX="522.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleCount" text="Count" />
+        <Button layoutX="531.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+        <Button layoutX="343.0" layoutY="27.0" mnemonicParsing="false" onAction="#deleteSelectedRow" text="Delete " />
+
+        <Separator layoutX="312.0" orientation="VERTICAL" prefHeight="430.0" prefWidth="7.0" />
+
+        <TableView fx:id="deviceTableView" layoutX="343.0" layoutY="57.0" prefHeight="200.0" prefWidth="229.0">
+            <columns>
+                <TableColumn fx:id="deviceNameColumn" onEditCommit="#editNameColumn" prefWidth="96.0" text="Name" />
+                <TableColumn fx:id="devicePowerColumn" onEditCommit="#editPowerColumn" prefWidth="66.0" text="Power[W]" />
+                <TableColumn fx:id="deviceTimeColumn" onEditCommit="#editTimeColumn" prefWidth="66.0" text="Time[M]" />
+            </columns>
+        </TableView>
+
+      <ChoiceBox fx:id="periodChoiceBox" layoutX="390.0" layoutY="293.0" prefHeight="25.0" prefWidth="73.0" />
+      <Button layoutX="485.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleLoad" text="Load" />
+
+    </children>
+</Pane>
